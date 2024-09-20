@@ -1,12 +1,14 @@
 package org.baticuisine.entities;
 
+import org.baticuisine.enums.TypeComposant;
+
 public class Materiel extends Composants {
     private double coutUnitaire;
     private double quantite;
     private  double coutTransport;
     private  double coefficientQualite;
 
-    public Materiel(int id, String nom, String typeComposant, double tauxTVA, double coutUnitaire, double quantite, double coutTransport, double coefficientQualite) {
+    public Materiel(int id, String nom, TypeComposant typeComposant, double tauxTVA, double coutUnitaire, double quantite, double coutTransport, double coefficientQualite) {
         super(id, nom, typeComposant, tauxTVA);
         this.coutUnitaire = coutUnitaire;
         this.quantite = quantite;

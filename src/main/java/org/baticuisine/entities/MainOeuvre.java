@@ -1,11 +1,13 @@
 package org.baticuisine.entities;
 
+import org.baticuisine.enums.TypeComposant;
+
 public class MainOeuvre extends  Composants{
     private double tauxHoraire;
     private double heuresTravail;
     private double productiviteOuvrier;
 
-    public MainOeuvre(int id, String nom, String typeComposant, double tauxTVA, double tauxHoraire, double heuresTravail, double productiviteOuvrier) {
+    public MainOeuvre(int id, String nom, TypeComposant typeComposant, double tauxTVA, double tauxHoraire, double heuresTravail, double productiviteOuvrier) {
         super(id, nom, typeComposant, tauxTVA);
         this.tauxHoraire = tauxHoraire;
         this.heuresTravail = heuresTravail;

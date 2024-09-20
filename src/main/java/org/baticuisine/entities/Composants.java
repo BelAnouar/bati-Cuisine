@@ -1,12 +1,14 @@
 package org.baticuisine.entities;
 
+import org.baticuisine.enums.TypeComposant;
+
 public abstract class Composants {
     protected int id;
     protected String nom;
-    protected String typeComposant;
+    protected TypeComposant typeComposant;
     protected double tauxTVA;
 
-    protected Composants(int id, String nom, String typeComposant, double tauxTVA) {
+    protected Composants(int id, String nom, TypeComposant typeComposant, double tauxTVA) {
         this.id = id;
         this.nom = nom;
         this.typeComposant = typeComposant;
@@ -29,11 +31,11 @@ public abstract class Composants {
         this.nom = nom;
     }
 
-    public String getTypeComposant() {
+    public TypeComposant getTypeComposant() {
         return typeComposant;
     }
 
-    public void setTypeComposant(String typeComposant) {
+    public void setTypeComposant(TypeComposant typeComposant) {
         this.typeComposant = typeComposant;
     }
 
