@@ -9,7 +9,7 @@ public class Projet {
     private double margeBeneficiaire;
     private double coutTotal;
     private Etat etatProjet;
-
+    private Client client;
     public Projet(){}
     public Projet(int id,double surface, String nomProjet, double margeBeneficiaire, double coutTotal, Etat etatProjet) {
         this.id = id;
@@ -18,6 +18,11 @@ public class Projet {
         this.margeBeneficiaire = margeBeneficiaire;
         this.coutTotal = coutTotal;
         this.etatProjet = etatProjet;
+    }
+    public Projet(String nomProjet, Client client, double surface) {
+        this.nomProjet = nomProjet;
+        this.client = client;
+        this.surface = surface;
     }
 
     public int getId() {
@@ -67,7 +72,13 @@ public class Projet {
     public void setSurface(double surface) {
         this.surface = surface;
     }
+    public Client getClient() {
+        return client;
+    }
 
+    public void setClient(Client client) {
+        this.client = client;
+    }
     @Override
     public String toString() {
         return "Projet{" +

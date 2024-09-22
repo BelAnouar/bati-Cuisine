@@ -2,6 +2,8 @@ package org.baticuisine.gui.impl;
 
 import org.baticuisine.gui.Menu;
 
+import static org.baticuisine.utils.loggerUtil.info;
+
 public class DisplayProjectsMenu implements Menu {
     @Override
     public void start() {
@@ -11,6 +13,6 @@ public class DisplayProjectsMenu implements Menu {
 
     @Override
     public void printMenuHeader() {
-        System.out.println("=== Display Existing Projects ===");
+        info("=== Display Existing Projects ===");
     }
 }

@@ -8,6 +8,13 @@ public class Client {
     private Boolean estProfessionnel;
 
     public Client(){}
+    public Client( String nom, String adresse, String telephone, Boolean estProfessionnel) {
+        this.id = id;
+        this.nom = nom;
+        this.adresse = adresse;
+        this.telephone = telephone;
+        this.estProfessionnel = estProfessionnel;
+    }
     public Client(int id, String nom, String adresse, String telephone, Boolean estProfessionnel) {
         this.id = id;
         this.nom = nom;

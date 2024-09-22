@@ -8,13 +8,21 @@ public class Devis {
     private LocalDate dateEmission;
     private LocalDate dateValidite;
     private Boolean accepte;
-
+    private Projet projet;
+    public Devis(){}
     public Devis(int id, double montantEstime, LocalDate dateEmission, LocalDate dateValidite, Boolean accepte) {
         this.id = id;
         this.montantEstime = montantEstime;
         this.dateEmission = dateEmission;
         this.dateValidite = dateValidite;
         this.accepte = accepte;
+    }
+    public Devis( double montantEstime, LocalDate dateEmission, LocalDate dateValidite, Boolean accepte,Projet projet) {
+        this.montantEstime = montantEstime;
+        this.dateEmission = dateEmission;
+        this.dateValidite = dateValidite;
+        this.accepte = accepte;
+        this.projet=projet;
     }
 
     public int getId() {
@@ -55,5 +63,13 @@ public class Devis {
 
     public void setAccepte(Boolean accepte) {
         this.accepte = accepte;
+    }
+
+    public Projet getProjet() {
+        return projet;
+    }
+
+    public void setProjet(Projet projet) {
+        this.projet = projet;
     }
 }
