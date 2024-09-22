@@ -7,13 +7,21 @@ public abstract class Composants {
     protected String nom;
     protected TypeComposant typeComposant;
     protected double tauxTVA;
-
+    private Projet projet;
+    protected Composants(){}
     protected Composants(int id, String nom, TypeComposant typeComposant, double tauxTVA) {
         this.id = id;
         this.nom = nom;
         this.typeComposant = typeComposant;
         this.tauxTVA = tauxTVA;
     }
+    protected Composants( String nom, TypeComposant typeComposant, double tauxTVA,Projet projet) {
+        this.nom = nom;
+        this.typeComposant = typeComposant;
+        this.tauxTVA = tauxTVA;
+        this.projet = projet;
+    }
+
 
     public int getId() {
         return id;
@@ -45,5 +53,13 @@ public abstract class Composants {
 
     public void setTauxTVA(double tauxTVA) {
         this.tauxTVA = tauxTVA;
+    }
+
+    public Projet getProjet() {
+        return projet;
+    }
+
+    public void setProjet(Projet projet) {
+        this.projet = projet;
     }
 }

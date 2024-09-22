@@ -29,7 +29,7 @@ public class DevisMenu  implements Menu {
         Devis devis = new Devis(montantEstime, dateEmission, dateValidite, accepte,projet);
         devisService.createDevis(devis);
         if(accepte){
-          System.out.println("Devis accepted");
+            new MaterielMenu(projet).start();
         }
 
     }

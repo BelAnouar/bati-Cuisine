@@ -8,12 +8,24 @@ public class Materiel extends Composants {
     private  double coutTransport;
     private  double coefficientQualite;
 
+
+    public  Materiel(){
+        super();
+    }
     public Materiel(int id, String nom, TypeComposant typeComposant, double tauxTVA, double coutUnitaire, double quantite, double coutTransport, double coefficientQualite) {
         super(id, nom, typeComposant, tauxTVA);
         this.coutUnitaire = coutUnitaire;
         this.quantite = quantite;
         this.coutTransport = coutTransport;
         this.coefficientQualite = coefficientQualite;
+    }
+    public Materiel(String nom, TypeComposant typeComposant, double tauxTVA, double coutUnitaire, double quantite, double coutTransport, double coefficientQualite ,Projet projet) {
+        super(nom, typeComposant, tauxTVA,projet);
+        this.coutUnitaire = coutUnitaire;
+        this.quantite = quantite;
+        this.coutTransport = coutTransport;
+        this.coefficientQualite = coefficientQualite;
+
     }
 
     public double getCoutUnitaire() {
@@ -47,4 +59,5 @@ public class Materiel extends Composants {
     public void setCoefficientQualite(double coefficientQualite) {
         this.coefficientQualite = coefficientQualite;
     }
+
 }

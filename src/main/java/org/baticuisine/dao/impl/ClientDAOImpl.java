@@ -5,6 +5,8 @@ import org.baticuisine.dao.ClientDAO;
 import org.baticuisine.entities.Client;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ClientDAOImpl implements ClientDAO {
 
@@ -38,6 +40,32 @@ public class ClientDAOImpl implements ClientDAO {
 
             throw new RuntimeException("Error adding client", e);
         }
+    }
+
+
+    @Override
+    public List<Client> getAllClients() {
+        List<Client> clients = new ArrayList<>();
+        String sql = "SELECT id, nom, adresse, telephone, estProfessionnel FROM client";
+
+        try (PreparedStatement pstmt = connection.prepareStatement(sql);
+             ResultSet rs = pstmt.executeQuery()) {
+
+            while (rs.next()) {
+                Client client = new Client();
+                client.setId(rs.getInt("id"));
+                client.setNom(rs.getString("nom"));
+                client.setAdresse(rs.getString("adresse"));
+                client.setTelephone(rs.getString("telephone"));
+                client.setEstProfessionnel(rs.getBoolean("estProfessionnel"));
+
+                clients.add(client);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving clients", e);
+        }
+
+        return clients;
     }
 
 
