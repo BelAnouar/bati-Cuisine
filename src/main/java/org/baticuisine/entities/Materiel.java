@@ -65,7 +65,19 @@ public class Materiel extends Composants {
 
     @Override
     public double calculateTotalCost() {
-        return (coutUnitaire * quantite + coutTransport) * coefficientQualite;
+        return (coutUnitaire * quantite + coutTransport) * coefficientQualite * (tauxTVA +1);
     }
 
+    @Override
+    public String toString() {
+        return "Materiel{" +
+                "coutUnitaire=" + coutUnitaire +
+                ", quantite=" + quantite +
+                ", coutTransport=" + coutTransport +
+                ", coefficientQualite=" + coefficientQualite +
+                ", nom='" + nom + '\'' +
+                ", typeComposant=" + typeComposant +
+                ", tauxTVA=" + tauxTVA +
+                '}';
+    }
 }

@@ -12,6 +12,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.baticuisine.utils.loggerUtil.error;
+
 public class MaterialDaoImpl implements MaterielDao {
     private final Connection connection;
     {
@@ -41,7 +43,7 @@ public class MaterialDaoImpl implements MaterielDao {
             pstmt.executeUpdate();
             System.out.println("Materiel inserted successfully!");
         } catch (SQLException e) {
-            e.printStackTrace();
+            error("Error adding Mteriel"+ e);
         }
     }
     @Override
@@ -67,7 +69,7 @@ public class MaterialDaoImpl implements MaterielDao {
                 materiels.add(materiel);
             }
         } catch (SQLException e) {
-            throw new RuntimeException("Error retrieving all materiels", e);
+           error("Error retrieving all materiels"+ e);
         }
 
         return materiels;
@@ -93,7 +95,7 @@ public class MaterialDaoImpl implements MaterielDao {
                 materiels.add(materiel);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            error("Error get all materiels"+ e);
         }
         return materiels;
     }

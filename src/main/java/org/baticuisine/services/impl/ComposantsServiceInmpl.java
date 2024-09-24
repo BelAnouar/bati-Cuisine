@@ -29,6 +29,15 @@ public class ComposantsServiceInmpl implements ComposantsService {
      return composantsRepository.getMainOeuvreByIdProjet(id);
     }
 
+    @Override
+    public Materiel getMaterielByIdMaterial(int id) {
+        return composantsRepository.getMaterielById(id);
+    }
+
+    @Override
+    public MainOeuvre getMainOeuvreByIdMainOeuvre(int id) {
+        return composantsRepository.getMainOeuvreById(id);
+    }
 
 
 }

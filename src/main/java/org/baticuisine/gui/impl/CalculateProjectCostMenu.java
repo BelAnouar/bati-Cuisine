@@ -24,7 +24,13 @@ public class CalculateProjectCostMenu implements Menu {
     @Override
     public void start() {
         printMenuHeader();
-        calculateProjectCosts(projet.getId());
+
+        if(projet != null) {
+            calculateProjectCosts(projet.getId());
+        }else {
+            int id= InputValidator.getValidInteger("Enter id projet: ");
+            calculateProjectCosts(id);
+        }
     }
 
     @Override

@@ -12,6 +12,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.baticuisine.utils.loggerUtil.error;
+import static org.baticuisine.utils.loggerUtil.info;
+
 public class MainOeuvreDaoImpl implements MainOeuvreDao {
     private final Connection connection;
     {
@@ -37,9 +40,9 @@ public class MainOeuvreDaoImpl implements MainOeuvreDao {
             pstmt.setDouble(7, mainOeuvre.getProductiviteOuvrier());
 
             pstmt.executeUpdate();
-            System.out.println("MainOeuvre inserted successfully!");
+          info("MainOeuvre inserted successfully!");
         } catch (SQLException e) {
-            e.printStackTrace();
+            error("Error adding MainOeuvre"+ e);
         }
     }
 
@@ -65,7 +68,7 @@ public class MainOeuvreDaoImpl implements MainOeuvreDao {
                 mainOeuvres.add(mainOeuvre);
             }
         } catch (SQLException e) {
-            throw new RuntimeException("Error retrieving all main oeuvres", e);
+            error("Error retrieving all main oeuvres"+ e);
         }
 
         return mainOeuvres;
@@ -90,7 +93,7 @@ public class MainOeuvreDaoImpl implements MainOeuvreDao {
                 mainOeuvres.add(mainOeuvre);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            error("Error get  MainDoeuvre"+ e);
         }
         return mainOeuvres;
     }

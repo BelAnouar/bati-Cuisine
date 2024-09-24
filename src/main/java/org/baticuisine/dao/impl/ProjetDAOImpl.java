@@ -9,6 +9,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.baticuisine.utils.loggerUtil.error;
+
 public class ProjetDAOImpl implements ProjetDAO {
     private final Connection connection;
     {
@@ -71,7 +73,7 @@ public class ProjetDAOImpl implements ProjetDAO {
             stmt.executeUpdate();
         } catch (SQLException e) {
             error("Erreur lors de la mise à jour du projet : " + e.getMessage());
-            e.printStackTrace();
+
         }
     }
 
@@ -84,8 +86,8 @@ public class ProjetDAOImpl implements ProjetDAO {
             stmt.setInt(2, projectId);
             stmt.executeUpdate();
         } catch (SQLException e) {
-            LoggerUtils.logError("Erreur lors de la mise à jour du projet : " + e.getMessage());
-            e.printStackTrace();
+            error("Erreur lors de la mise à jour du projet : " + e.getMessage());
+
         }
     }
 

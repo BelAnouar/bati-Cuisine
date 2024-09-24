@@ -22,7 +22,7 @@ public  class InputValidator {
         do {
             info(prompt);
             input = scanner.nextLine().trim();
-            if (input.isEmpty() ) {
+            if (input.isEmpty()  && input instanceof String) {
                error("Input cannot be empty. Please try again.");
             }
         } while (input.isEmpty());

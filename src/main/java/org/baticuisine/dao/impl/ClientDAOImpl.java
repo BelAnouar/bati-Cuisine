@@ -8,6 +8,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import  static  org.baticuisine.utils.loggerUtil.error;
+
 public class ClientDAOImpl implements ClientDAO {
 
     private final Connection connection;
@@ -38,7 +40,7 @@ public class ClientDAOImpl implements ClientDAO {
             }
         } catch (SQLException e) {
 
-            throw new RuntimeException("Error adding client", e);
+            error("Error adding client"+ e);
         }
     }
 
@@ -62,7 +64,7 @@ public class ClientDAOImpl implements ClientDAO {
                 clients.add(client);
             }
         } catch (SQLException e) {
-            throw new RuntimeException("Error retrieving clients", e);
+            error("Error retrieving clients"+ e);
         }
 
         return clients;

@@ -19,7 +19,6 @@ public class MaindoeuvreMenu implements Menu {
     @Override
     public void start() {
         printMenuHeader();
-        String type = InputValidator.getValidString("Enter the type of labor (e.g., Ouvrier de base, Spécialiste): ");
         double hourlyRate = InputValidator.getValidInteger("Enter the hourly rate of this labor (€/h): ");
         double hoursWorked = InputValidator.getValidInteger("Enter the number of hours worked: ");
         double productivityFactor = InputValidator.getValidInteger("Enter the productivity factor (1.0 = standard, > 1.0 = high productivity): ");

@@ -54,7 +54,18 @@ public class MainOeuvre extends  Composants{
     }
     @Override
     public double calculateTotalCost() {
-        return (tauxHoraire * heuresTravail) * productiviteOuvrier;
+        return (tauxHoraire * heuresTravail) * productiviteOuvrier *(tauxTVA +1);
     }
 
+    @Override
+    public String toString() {
+        return "MainOeuvre{" +
+                "tauxHoraire=" + tauxHoraire +
+                ", heuresTravail=" + heuresTravail +
+                ", productiviteOuvrier=" + productiviteOuvrier +
+                ", nom='" + nom + '\'' +
+                ", typeComposant=" + typeComposant +
+                ", tauxTVA=" + tauxTVA +
+                '}';
+    }
 }

@@ -25,21 +25,31 @@ public class ComposantsRepositoryImpl implements ComposantsRepository {
     {
         materielDao = new MaterialDaoImpl();
         mainOeuvreDao = new MainOeuvreDaoImpl();
-
+        loadAllComposants();
     }
     @Override
     public void saveComposants(Composants composants) {
         if (composants.getTypeComposant() == TypeComposant.MATERIEL) {
             Materiel materiel = (Materiel) composants;
             materielDao.save(materiel);
-            materielMap.put(materiel.getProjet().getId(), materiel);
+            materielMap.put(materiel.getId(), materiel);
         } else if (composants.getTypeComposant() == TypeComposant.MAIN_DOEUVRE) {
             MainOeuvre mainOeuvre = (MainOeuvre) composants;
             mainOeuvreDao.insertOeuvre(mainOeuvre);
-            mainOeuvreMap.put(mainOeuvre.getProjet().getId(), mainOeuvre);
+            mainOeuvreMap.put(mainOeuvre.getId(), mainOeuvre);
         } else {
             System.out.println("Unknown TypeComposant");
         }
+    }
+
+    @Override
+    public Materiel getMaterielById(int id) {
+        return materielMap.get(id);
+    }
+
+    @Override
+    public MainOeuvre getMainOeuvreById(int id) {
+        return mainOeuvreMap.get(id);
     }
 
     private void loadAllComposants() {
@@ -49,11 +59,11 @@ public class ComposantsRepositoryImpl implements ComposantsRepository {
 
 
         for (Materiel materiel : allMateriels) {
-            materielMap.put(materiel.getProjet().getId(), materiel);
+            materielMap.put(materiel.getId(), materiel);
         }
 
         for (MainOeuvre mainOeuvre : allMainOeuvres) {
-            mainOeuvreMap.put(mainOeuvre.getProjet().getId(), mainOeuvre);
+            mainOeuvreMap.put(mainOeuvre.getId(), mainOeuvre);
         }
     }
 

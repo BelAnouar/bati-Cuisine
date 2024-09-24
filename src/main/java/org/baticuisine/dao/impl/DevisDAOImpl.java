@@ -8,6 +8,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import static org.baticuisine.utils.loggerUtil.error;
+
 public class DevisDAOImpl implements DevisDAO {
 
     private final Connection connection;
@@ -44,7 +46,7 @@ public class DevisDAOImpl implements DevisDAO {
             }
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            error("Error adding devis"+ e);
         }
     }
 }

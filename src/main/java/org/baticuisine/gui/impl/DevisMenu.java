@@ -2,9 +2,12 @@ package org.baticuisine.gui.impl;
 
 import org.baticuisine.entities.Devis;
 import org.baticuisine.entities.Projet;
+import org.baticuisine.enums.Etat;
 import org.baticuisine.gui.Menu;
 import org.baticuisine.services.DevisService;
+import org.baticuisine.services.ProjetService;
 import org.baticuisine.services.impl.DevisServiceImpl;
+import org.baticuisine.services.impl.ProjetServiceImpl;
 import org.baticuisine.utils.InputValidator;
 
 import java.time.LocalDate;
@@ -15,11 +18,13 @@ public class DevisMenu  implements Menu {
 
     private Projet projet;
     private DevisService devisService;
+    private ProjetService projetService;
     private double montantEstime;
     public  DevisMenu(Projet projet,double montantEstime) {
         this.projet = projet;
         this.montantEstime = montantEstime;
        devisService=new DevisServiceImpl();
+       projetService=new ProjetServiceImpl();
     }
     @Override
     public void start() {
@@ -37,10 +42,13 @@ public class DevisMenu  implements Menu {
 
         if (saveQuote) {
             Devis devis = new Devis(montantEstime, dateEmission, dateValidite, accepte,projet);
+           projetService.updateProject(projet);
+           projetService.updateEtatProject(projet , Etat.Terminé);
             devisService.createDevis(devis);
             info("Devis enregistré avec succès !");
         }
 
+        projetService.updateEtatProject(projet , Etat.Annulé);
 
         info("--- Fin du projet ---");
 

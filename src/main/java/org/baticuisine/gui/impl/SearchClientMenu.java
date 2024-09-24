@@ -19,8 +19,8 @@ public class SearchClientMenu implements Menu {
     public void start() {
         printMenuHeader();
         String name= InputValidator.getValidString("Enter Client Name: ");
-       Client client= clientService.getClient(name);
-       info(client.getId() + client.getAdresse() +client.getTelephone());
+        Client client= clientService.getClient(name);
+        info(client.toString());
         boolean answer = InputValidator.getYesNoInput("Would you like to continue with this client? (y/n):");
         if(answer){
             new AddProjectDetailsMenu(client).start();
