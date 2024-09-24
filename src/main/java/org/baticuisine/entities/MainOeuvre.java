@@ -66,6 +66,7 @@ public class MainOeuvre extends  Composants{
                 ", nom='" + nom + '\'' +
                 ", typeComposant=" + typeComposant +
                 ", tauxTVA=" + tauxTVA +
+                "projet="+ getProjet() +
                 '}';
     }
 }

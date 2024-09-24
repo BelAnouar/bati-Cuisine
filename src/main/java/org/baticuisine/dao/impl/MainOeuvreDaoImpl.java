@@ -49,7 +49,7 @@ public class MainOeuvreDaoImpl implements MainOeuvreDao {
     @Override
     public List<MainOeuvre> getAllMainOeuvre() {
         List<MainOeuvre> mainOeuvres = new ArrayList<>();
-        String sql = "SELECT mo.id, mo.nom, mo.typecomposant, mo.tauxhoraire, mo.heurestravail, mo.productiviteouvrier, p.id as projetId, p.nom as projetNom FROM maindoeuvre mo LEFT JOIN projet p ON mo.projetid = p.id";
+        String sql = "SELECT mo.id as id, mo.nom as nom, mo.typecomposant as typecomposant , mo.tauxhoraire as tauxhoraire, mo.heurestravail as heurestravail,  mo.productiviteouvrier as productiviteouvrier , p.id as projetId, p.nomprojet as projetNom FROM maindoeuvre mo LEFT JOIN projet p ON mo.projetid = p.id";
 
         try (PreparedStatement pstmt = connection.prepareStatement(sql);
              ResultSet rs = pstmt.executeQuery()) {

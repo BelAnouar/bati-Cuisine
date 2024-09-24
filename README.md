@@ -60,6 +60,10 @@ L'application suit une architecture en couches, permettant une séparation clair
 1. Clonez le dépôt Git :
    ```bash
    git clone https://github.com/JavaAura/Anouar_Belhassan_S1_B3_BatiCuisine.git
+### Execute jar file
+1. jar file :
+   ```bash
+   java -jar ./target/baticuisine-1.0-SNAPSHOT-jar-with-dependencies.jar
 
 ### Conception UML
 ![DiagrammeClass](https://github.com/user-attachments/assets/824b8cbb-04d8-4f9d-bb7b-d259719c80dc)

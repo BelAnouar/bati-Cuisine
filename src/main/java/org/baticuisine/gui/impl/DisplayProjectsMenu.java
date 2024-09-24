@@ -1,5 +1,6 @@
 package org.baticuisine.gui.impl;
 
+import org.baticuisine.entities.MainOeuvre;
 import org.baticuisine.entities.Projet;
 import org.baticuisine.gui.Menu;
 import org.baticuisine.services.ComposantsService;
@@ -20,7 +21,17 @@ public class DisplayProjectsMenu implements Menu {
     @Override
     public void start() {
         printMenuHeader();
+        projetService.getProjets().stream().forEach(projet -> {
+            composantsService.getMainOeuvreByIdProjet(projet.getId()).stream().forEach(s->{
+                s.setProjet(projet);
+                info(s.toString());
+            });
 
+            composantsService.getMaterielByIdProjet(projet.getId()).stream().forEach(s->{
+                s.setProjet(projet);
+                info(s.toString());
+            });
+        });
     }
 
     @Override
