@@ -32,7 +32,7 @@ public class AddProjectDetailsMenu implements Menu {
         Projet project = new Projet(nomProjet, client,surface);
         projetService.createProjet(project);
         info("Project for client " + client.getNom() + " has been created successfully.");
-        new DevisMenu(project).start();
+        new MaterielMenu(project).start();
     }
 
     @Override

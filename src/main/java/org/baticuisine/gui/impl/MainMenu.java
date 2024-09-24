@@ -27,7 +27,7 @@ public class MainMenu implements Menu {
                 new DisplayProjectsMenu().start();
                 break;
             case 3:
-                new CalculateProjectCostMenu().start();
+                new CalculateProjectCostMenu(null).start();
                 break;
             case 4:
                 info("Thank you for using Bati-Cuisine. Goodbye!");

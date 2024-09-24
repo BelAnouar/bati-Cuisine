@@ -15,22 +15,34 @@ public class DevisMenu  implements Menu {
 
     private Projet projet;
     private DevisService devisService;
-    public  DevisMenu(Projet projet) {
+    private double montantEstime;
+    public  DevisMenu(Projet projet,double montantEstime) {
         this.projet = projet;
+        this.montantEstime = montantEstime;
        devisService=new DevisServiceImpl();
     }
     @Override
     public void start() {
         printMenuHeader();
-        double montantEstime= InputValidator.getValidInteger("montant_estime");
+
+        info("--- Enregistrement du Devis ---");
+
+
         LocalDate dateEmission = InputValidator.getValidDate("Enter the emission date (format: yyyy-MM-dd): ");
         LocalDate dateValidite = InputValidator.getValidDate("Enter the validity date (format: yyyy-MM-dd): ");
         boolean accepte = InputValidator.getYesNoInput("Is the quote accepted? (yes/no): ");
-        Devis devis = new Devis(montantEstime, dateEmission, dateValidite, accepte,projet);
-        devisService.createDevis(devis);
-        if(accepte){
-            new MaterielMenu(projet).start();
+
+
+        boolean saveQuote = InputValidator.getYesNoInput("Souhaitez-vous enregistrer le devis ? (y/n) : ");
+
+        if (saveQuote) {
+            Devis devis = new Devis(montantEstime, dateEmission, dateValidite, accepte,projet);
+            devisService.createDevis(devis);
+            info("Devis enregistré avec succès !");
         }
+
+
+        info("--- Fin du projet ---");
 
     }
 

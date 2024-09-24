@@ -8,6 +8,8 @@ import org.baticuisine.repositories.ProjetRepository;
 import org.baticuisine.repositories.impl.ProjetRepositoryImpl;
 import org.baticuisine.services.ProjetService;
 
+import java.util.List;
+
 public class ProjetServiceImpl implements ProjetService {
 
     private ProjetRepository projetRepository;
@@ -18,5 +20,10 @@ public class ProjetServiceImpl implements ProjetService {
     @Override
     public void createProjet(Projet projet) {
        projetRepository.save(projet);
+    }
+
+    @Override
+    public List<Projet> getProjets() {
+     return    projetRepository.findAll();
     }
 }

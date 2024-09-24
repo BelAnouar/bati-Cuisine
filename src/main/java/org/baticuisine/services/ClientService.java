@@ -4,4 +4,5 @@ import org.baticuisine.entities.Client;
 
 public interface ClientService {
     void createClient(Client client);
+    Client getClient(String name);
 }

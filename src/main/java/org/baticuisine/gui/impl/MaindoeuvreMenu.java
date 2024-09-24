@@ -29,6 +29,7 @@ public class MaindoeuvreMenu implements Menu {
         if (answer) {
             new MaindoeuvreMenu(composants).start();
         }
+        new CalculateProjectCostMenu(composants.getProjet()).start();
     }
 
     @Override

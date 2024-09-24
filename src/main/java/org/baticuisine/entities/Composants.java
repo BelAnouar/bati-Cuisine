@@ -62,4 +62,6 @@ public abstract class Composants {
     public void setProjet(Projet projet) {
         this.projet = projet;
     }
+
+   abstract double calculateTotalCost();
 }

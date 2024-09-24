@@ -11,6 +11,9 @@ public class MainOeuvre extends  Composants{
     public MainOeuvre(){
         super();
     }
+
+
+
     public MainOeuvre(int id, String nom, TypeComposant typeComposant, double tauxTVA, double tauxHoraire, double heuresTravail, double productiviteOuvrier) {
         super(id, nom, typeComposant, tauxTVA);
         this.tauxHoraire = tauxHoraire;
@@ -49,6 +52,9 @@ public class MainOeuvre extends  Composants{
     public void setProductiviteOuvrier(double productiviteOuvrier) {
         this.productiviteOuvrier = productiviteOuvrier;
     }
-
+    @Override
+    public double calculateTotalCost() {
+        return (tauxHoraire * heuresTravail) * productiviteOuvrier;
+    }
 
 }

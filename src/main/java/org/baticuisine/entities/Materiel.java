@@ -12,6 +12,9 @@ public class Materiel extends Composants {
     public  Materiel(){
         super();
     }
+
+
+
     public Materiel(int id, String nom, TypeComposant typeComposant, double tauxTVA, double coutUnitaire, double quantite, double coutTransport, double coefficientQualite) {
         super(id, nom, typeComposant, tauxTVA);
         this.coutUnitaire = coutUnitaire;
@@ -58,6 +61,11 @@ public class Materiel extends Composants {
 
     public void setCoefficientQualite(double coefficientQualite) {
         this.coefficientQualite = coefficientQualite;
+    }
+
+    @Override
+    public double calculateTotalCost() {
+        return (coutUnitaire * quantite + coutTransport) * coefficientQualite;
     }
 
 }

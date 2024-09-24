@@ -15,4 +15,9 @@ public class ClientServiceImpl implements ClientService {
     public void createClient(Client client) {
         clientRepository.save(client);
     }
+
+    @Override
+    public Client getClient(String name) {
+       return clientRepository.getClientByName(name);
+    }
 }

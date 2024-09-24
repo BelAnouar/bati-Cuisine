@@ -5,7 +5,7 @@ import org.baticuisine.enums.Etat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
-import java.util.InputMismatchException;
+
 import java.util.Scanner;
 
 import static org.baticuisine.utils.loggerUtil.error;
@@ -41,6 +41,18 @@ public  class InputValidator {
             }
         }
     }
+    public static double getValidDouble(String prompt) {
+        while (true) {
+            info(prompt);
+            String input = scanner.nextLine();
+            try {
+                return Double.parseDouble(input);
+            } catch (NumberFormatException e) {
+                error("Invalid input. Please enter a valid decimal number.");
+            }
+        }
+    }
+
 
     public static boolean getYesNoInput(String prompt) {
         while (true) {
